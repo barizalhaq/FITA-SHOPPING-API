@@ -28,17 +28,6 @@ services:
     networks:
       - fita_shopping_app
     restart: unless-stopped
-  redis:
-    image: redis:latest
-    restart: always
-    environment:
-      - ALLOW_EMPTY_PASSWORD=yes
-    ports:
-      - 6379:6379
-    networks:
-      - fita_shopping_app
-    volumes:
-      - redis:/data/redis
 
 networks:
   fita_shopping_app:
@@ -46,5 +35,3 @@ networks:
 
 volumes:
   db:
-  redis:
-    driver: local
