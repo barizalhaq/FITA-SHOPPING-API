@@ -32,7 +32,7 @@ func TestDecart(t *testing.T) {
 			ID:     1,
 			UserID: 1,
 			Products: []domain.Product{
-				domain.Product{
+				{
 					ID:    1,
 					SKU:   "DUMMY_SKU",
 					Name:  "DUMMY PRODUCT",
@@ -94,7 +94,7 @@ func TestDecart(t *testing.T) {
 				ID:     1,
 				UserID: 1,
 				Products: []domain.Product{
-					domain.Product{
+					{
 						ID:    1,
 						SKU:   "DUMMY_SKU",
 						Name:  "DUMMY PRODUCT",

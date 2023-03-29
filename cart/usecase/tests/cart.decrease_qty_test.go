@@ -30,14 +30,14 @@ func TestDecreaseQty(t *testing.T) {
 	}
 
 	dummyProducts := []*domain.Product{
-		&domain.Product{
+		{
 			ID:    1,
 			SKU:   "DUMMY_SKU_1",
 			Name:  "DUMMY PRODUCT 1",
 			Price: 10.99,
 			Qty:   15,
 		},
-		&domain.Product{
+		{
 			ID:    2,
 			SKU:   "DUMMY_SKU_2",
 			Name:  "DUMMY PRODUCT 2",
@@ -49,12 +49,12 @@ func TestDecreaseQty(t *testing.T) {
 	t.Run("Successfully decreasing cart items qty", func(t *testing.T) {
 		cartToReturn := dummyUser.Cart
 		cartToReturn.Items = []domain.CartItem{
-			domain.CartItem{
+			{
 				CartID:    cartToReturn.ID,
 				ProductID: dummyProducts[0].ID,
 				Qty:       5,
 			},
-			domain.CartItem{
+			{
 				CartID:    cartToReturn.ID,
 				ProductID: dummyProducts[1].ID,
 				Qty:       8,
@@ -88,11 +88,11 @@ func TestDecreaseQty(t *testing.T) {
 
 		cart, err := cartUc.DecreaseQty(dummyUser, gModel.DecreaseCartProductQtyInput{
 			ProductsToAdd: []*gModel.ProductWithQty{
-				&gModel.ProductWithQty{
+				{
 					ProductID: int(dummyProducts[0].ID),
 					Qty:       3,
 				},
-				&gModel.ProductWithQty{
+				{
 					ProductID: int(dummyProducts[1].ID),
 					Qty:       5,
 				},

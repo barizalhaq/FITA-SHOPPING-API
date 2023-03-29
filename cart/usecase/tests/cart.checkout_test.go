@@ -30,28 +30,28 @@ func TestCheckout(t *testing.T) {
 	}
 
 	dummyProducts := []*domain.Product{
-		&domain.Product{
+		{
 			ID:    1,
 			SKU:   "120P90",
 			Name:  "Google Home",
 			Price: 49.99,
 			Qty:   10,
 		},
-		&domain.Product{
+		{
 			ID:    2,
 			SKU:   "43N23P",
 			Name:  "MacBook Pro",
 			Price: 5399.99,
 			Qty:   5,
 		},
-		&domain.Product{
+		{
 			ID:    3,
 			SKU:   "A304SD",
 			Name:  "Alexa Speaker",
 			Price: 109.50,
 			Qty:   10,
 		},
-		&domain.Product{
+		{
 			ID:    4,
 			SKU:   "234234",
 			Name:  "Raspberry Pi B",
@@ -63,22 +63,22 @@ func TestCheckout(t *testing.T) {
 	t.Run("Checkout successfully", func(t *testing.T) {
 		cartToReturn := dummyUser.Cart
 		cartToReturn.Items = []domain.CartItem{
-			domain.CartItem{
+			{
 				CartID:    cartToReturn.ID,
 				ProductID: 2,
 				Qty:       1,
 			},
-			domain.CartItem{
+			{
 				CartID:    cartToReturn.ID,
 				ProductID: 4,
 				Qty:       2,
 			},
-			domain.CartItem{
+			{
 				CartID:    cartToReturn.ID,
 				ProductID: 1,
 				Qty:       3,
 			},
-			domain.CartItem{
+			{
 				CartID:    cartToReturn.ID,
 				ProductID: 3,
 				Qty:       3,
@@ -92,7 +92,7 @@ func TestCheckout(t *testing.T) {
 			Return(&cartToReturn, nil)
 
 		promos := []domain.Promo{
-			domain.Promo{
+			{
 				SKU:            "43N23P",
 				OnFree:         true,
 				OnDiscount:     false,
@@ -103,7 +103,7 @@ func TestCheckout(t *testing.T) {
 					SKU: "234234",
 				},
 			},
-			domain.Promo{
+			{
 				SKU:            "120P90",
 				OnFree:         true,
 				OnDiscount:     false,
@@ -114,7 +114,7 @@ func TestCheckout(t *testing.T) {
 					SKU: "120P90",
 				},
 			},
-			domain.Promo{
+			{
 				SKU:                "A304SD",
 				OnFree:             false,
 				OnDiscount:         true,
