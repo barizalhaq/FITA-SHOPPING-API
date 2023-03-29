@@ -13,7 +13,6 @@ services:
       - fita_shopping_app
     depends_on:
       - db
-      - redis
   db:
     container_name: shopping_api_db
     image: postgres
