@@ -1,0 +1,48 @@
+name: Latest Build
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  name: Lint Files
+  runs-on: 'ubuntu-latest'
+  steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-go@v3
+      with:
+        go-version: '1.19'
+    - name: golangci-lint
+      uses: golangci/golangci-lint-action@v2.5.2
+      with:
+        version: latest
+  test:
+    name: Run the tests
+    runs-on: 'ubuntu-latest'
+    needs: lint
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-go@v3
+        with:
+          go-version: '1.19'
+      - run: go test -v ./...
+  build:
+    name: Build latest
+    runs-on: 'ubuntu-latest'
+    needs: lint
+    steps:
+      - name: Checkout code
+        run: actions/checkout@v3
+      - uses: actions/setup-go@v3
+         with:
+          go-version: '1.19'
+      - name: Setup ENV
+        run: |
+          BINARY_NAME=${{github.repository}}
+          echo "BINARY_NAME=$BINARY_NAME" >> $GITHUB_ENV
+      - name: Install modules
+        run: go mod download
+      - name: Build binary
+        run: |
+          go build -o "$BINARY_NAME" ./server/server.go
