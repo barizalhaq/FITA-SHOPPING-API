@@ -1,0 +1,28 @@
+[
+    {
+        "sku": "43N23P",
+        "on_free": true,
+        "on_discount": false,
+        "purchase_amount": 1,
+        "free_product": {
+            "sku": "234234"
+        }
+    },
+    {
+        "sku": "120P90",
+        "on_free": true,
+        "on_discount": false,
+        "purchase_amount": 3,
+        "free_product": {
+            "sku": "120P90"
+        }
+    },
+    {
+        "sku": "A304SD",
+        "on_free": false,
+        "on_discount": true,
+        "purchase_amount": 3,
+        "discount_percentage": 10,
+        "free_product": null
+    }
+]

@@ -1,0 +1,6 @@
+{
+    "app_secret": "264529482B4D6251655468576D5A7134743777217A25432A462D4A614E635266",
+    "database": {
+        "dsn": "postgresql://postgres:postgres@shopping_api_db:5432/fita_shopping?sslmode=disable"
+    }
+}

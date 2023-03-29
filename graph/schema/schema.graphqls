@@ -1,0 +1,84 @@
+type User {
+    ID: Int!
+    username: String!
+}
+
+type Product {
+    ID: Int!
+    sku: String!
+    name: String!
+    price: ProductPrice!
+    qty: Int!
+}
+
+type Cart {
+    ID: Int!
+    owner: User!
+    products: [Product]!
+}
+
+type ProductPrice {
+    originalPrice: Float!
+    currency: String!
+}
+
+type Invoice {
+    cart: Cart!
+    total_price: InvoicePrice!
+}
+
+type InvoicePrice {
+    originalTotalPrice: Float!
+    actualCurrentPrice: Float!
+    priceDiscount: Float!
+    currency: String!
+}
+
+input RegisterInput {
+    username: String!
+    password: String!
+}
+
+input AuthenticateInput {
+    username: String!
+    password: String!
+}
+
+input EncartInput {
+    productsToAdd: [ProductWithQty!]!
+}
+
+input ProductWithQty {
+    productID: Int!
+    qty: Int!
+}
+
+input DecreaseCartProductQtyInput {
+    productsToAdd: [ProductWithQty!]!
+}
+
+input DecartInput {
+    productIDs: [Int!]!
+}
+
+type RegisterResponse {
+    user: User!
+}
+
+type AuthenticateResponse {
+    authenticated: Boolean!
+}
+
+type Query {
+    authenticate(input: AuthenticateInput!): AuthenticateResponse!
+    products: [Product]!
+    cart: Cart!
+}
+
+type Mutation {
+    register(input: RegisterInput!): RegisterResponse!
+    enCart(input: EncartInput!): Cart!
+    deCart(input: DecartInput!): Cart!
+    decreaseCartProductQty(input: DecreaseCartProductQtyInput!): Cart!
+    checkout: Invoice!
+}

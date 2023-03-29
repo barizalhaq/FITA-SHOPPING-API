@@ -1,0 +1,12 @@
+FROM golang:1.19-alpine
+
+WORKDIR /go/src/github.com/barizalhaq/FITA-shopping-API
+
+COPY . .
+
+RUN mkdir "/build"
+
+RUN go get github.com/githubnemo/CompileDaemon
+RUN go install github.com/githubnemo/CompileDaemon
+
+ENTRYPOINT CompileDaemon -log-prefix=false -build="go build -o /build/app ./server/server.go" -command="/build/app"
