@@ -6,17 +6,18 @@ on:
       - main
 
 jobs:
-  name: Lint Files
-  runs-on: 'ubuntu-latest'
-  steps:
-    - uses: actions/checkout@v3
-    - uses: actions/setup-go@v3
-      with:
-        go-version: '1.19'
-    - name: golangci-lint
-      uses: golangci/golangci-lint-action@v2.5.2
-      with:
-        version: latest
+  lint:
+    name: Lint Files
+    runs-on: 'ubuntu-latest'
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-go@v3
+        with:
+          go-version: '1.19'
+      - name: golangci-lint
+        uses: golangci/golangci-lint-action@v2.5.2
+        with:
+          version: latest
   test:
     name: Run the tests
     runs-on: 'ubuntu-latest'
