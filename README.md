@@ -31,7 +31,7 @@ to populate products
 # API's
 Shopping API built with GraphQL API. This kind of backend service is used for shopping purposes with an interesting promo in it. APIs serve several features such as registering users to secure their cart, authentication, creating/viewing carts, adding/removing or even decreasing product quantity within their cart, and last but not least checkout. Checkout API will give a summarized invoice that comes with an invoice consisting of several pieces of information, for example, original price (total price without promo discount), actual price (the total price which already discounts the user should pay), price discount (discount total), and currency. To simplify the testing purposes here's the POSTMAN Collection.
 
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/4551391-054eb2d9-1982-4040-8aa6-dde1e0a1e16d?action=collection%2Ffork&collection-url=entityId%3D4551391-054eb2d9-1982-4040-8aa6-dde1e0a1e16d%26entityType%3Dcollection%26workspaceId%3D6ceb5ec7-69f0-41df-b9d3-806e5455d740)
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/4551391-054eb2d9-1982-4040-8aa6-dde1e0a1e16d?action=collection%2Ffork&collection-url=entityId%3D4551391-054eb2d9-1982-4040-8aa6-dde1e0a1e16d%26entityType%3Dcollection%26workspaceId%3Dd01c1341-d5c4-40b6-974d-e41f6d61cc90)
 
 <br />
 
